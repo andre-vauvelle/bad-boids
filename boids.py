@@ -10,15 +10,15 @@ import random
 import yaml
 
 # Deliberately terrible code for teaching purposes
-boids = yaml.load(open(os.path.join(os.path.dirname(__file__), 'init_boids.yaml')))
+boids = yaml.load(open(os.path.join(os.path.dirname(__file__), 'init_boids.yaml')), Loader=yaml.FullLoader)
 boids_x = [random.uniform(boids['position']['x']['lower'], boids['position']['x']['upper']) for _ in
-           range(boids['n_sample'])]
+range(boids['n_sample'])]
 boids_y = [random.uniform(boids['position']['y']['lower'], boids['position']['y']['upper']) for _ in
-           range(boids['n_sample'])]
-boid_x_velocities = [random.uniform(boids['position']['x']['lower'], boids['position']['x']['upper']) for _ in
-                     range(boids['n_sample'])]
-boid_y_velocities = [random.uniform(boids['position']['x']['lower'], boids['position']['x']['upper']) for _ in
-                     range(boids['n_sample'])]
+range(boids['n_sample'])]
+boid_x_velocities = [random.uniform(boids['velocity']['x']['lower'], boids['velocity']['x']['upper']) for _ in
+range(boids['n_sample'])]
+boid_y_velocities = [random.uniform(boids['velocity']['y']['lower'], boids['velocity']['y']['upper']) for _ in
+range(boids['n_sample'])]
 boids = (boids_x, boids_y, boid_x_velocities, boid_y_velocities)
 
 
