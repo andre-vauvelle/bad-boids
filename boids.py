@@ -5,14 +5,20 @@ for use as an exercise on refactoring.
 
 from matplotlib import pyplot as plt
 from matplotlib import animation
+import os
 import random
+import yaml
 
 # Deliberately terrible code for teaching purposes
-
-boids_x = [random.uniform(-450, 50.0) for x in range(50)]
-boids_y = [random.uniform(300.0, 600.0) for x in range(50)]
-boid_x_velocities = [random.uniform(0, 10.0) for x in range(50)]
-boid_y_velocities = [random.uniform(-20.0, 20.0) for x in range(50)]
+boids = yaml.load(open(os.path.join(os.path.dirname(__file__), 'init_boids.yaml')))
+boids_x = [random.uniform(boids['position']['x']['lower'], boids['position']['x']['upper']) for _ in
+           range(boids['n_sample'])]
+boids_y = [random.uniform(boids['position']['y']['lower'], boids['position']['y']['upper']) for _ in
+           range(boids['n_sample'])]
+boid_x_velocities = [random.uniform(boids['position']['x']['lower'], boids['position']['x']['upper']) for _ in
+                     range(boids['n_sample'])]
+boid_y_velocities = [random.uniform(boids['position']['x']['lower'], boids['position']['x']['upper']) for _ in
+                     range(boids['n_sample'])]
 boids = (boids_x, boids_y, boid_x_velocities, boid_y_velocities)
 
 

@@ -1,0 +1,16 @@
+position:
+        x:
+                lower: -450.0
+                upper: 50.0
+        y:
+                lower: 300.0
+                upper: 600.0
+velocity:
+        x:
+                lower: 0
+                upper: 10.0
+        y:
+                lower: -20.0
+                upper: 20.0
+n_sample: 50
+
